@@ -18,6 +18,17 @@ public class AppRunner {
 
 		System.out.println();
 		System.out.println("Begin Application main Method");
+		
+		VendingMachineChange coinsToGive = new VendingMachineChange();
+		
+		// chargeValue, givenValue
+		coinsToGive.generateCoins(0.33, 0.33);
+		
+		// chargeValue, givenValue
+		coinsToGive.generateCoins(0.33, 1.00);
+		
+		// chargeValue, givenValue
+		coinsToGive.generateCoins(1.50, 1.00);
 	}
 
 }
