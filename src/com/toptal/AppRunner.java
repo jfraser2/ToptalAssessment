@@ -29,6 +29,9 @@ public class AppRunner {
 		
 		// chargeValue, givenValue
 		coinsToGive.generateCoins(1.50, 1.00);
+		
+		// chargeValue, givenValue
+		coinsToGive.generateCoins(0.65, 1.00);
 	}
 
 }

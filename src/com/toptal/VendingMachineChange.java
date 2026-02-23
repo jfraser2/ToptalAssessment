@@ -58,10 +58,8 @@ public class VendingMachineChange {
 			for (int i = 0; i  < coinList.size(); i++) {
 				currentCoin = coinList.get(i);
 				numberOfCoins = remainingAmount / currentCoin;
-				for(int j = 0; j < numberOfCoins; j++) {
-					this.changeTypeCounter.addElement(currentCoin);
-				}
 				if (numberOfCoins > 0) {
+					this.changeTypeCounter.addElementWithCount(currentCoin, numberOfCoins);
 					remainingAmount = remainingAmount - (currentCoin * numberOfCoins);
 				}
 			} // end the for loop
