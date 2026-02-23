@@ -8,7 +8,8 @@ public class VendingMachineChange {
 	
 	private List<Integer> coinList = new ArrayList<Integer>(
 	        Arrays.asList(100, 50, 25, 10, 5, 1)); 
-	private double epsilon = .01;
+	private static final double EPSILON = 0.01;
+	private static final double ROUND_UP = 0.005;
 	
 	private ChangeTypeCounter changeTypeCounter = null; // delegate Object
 
@@ -24,7 +25,7 @@ public class VendingMachineChange {
 		if (isDoubleEqual(chargeValue, givenValue)) {
 			retVar = 0.0;
 		} else if (chargeValue < givenValue) {
-			retVar = givenValue - chargeValue;
+			retVar = givenValue - chargeValue + ROUND_UP; // round to nearest penny
 		} else {
 			retVar = givenValue;
 		}
@@ -35,7 +36,7 @@ public class VendingMachineChange {
 	private boolean isDoubleEqual(double inputValue, double compareValue) {
 		boolean retVar = false;
 		
-		if (Math.abs(inputValue - compareValue)  < epsilon) {
+		if (Math.abs(inputValue - compareValue)  < EPSILON) {
 			retVar = true;
 		}
 		
