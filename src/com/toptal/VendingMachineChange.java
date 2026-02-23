@@ -14,7 +14,7 @@ public class VendingMachineChange {
 
 	
 	public VendingMachineChange() {
-		this.changeTypeCounter = new ChangeTypeCounter(this);
+		this.changeTypeCounter = new ChangeTypeCounter();
 	}
 	
 	private double calculateChange(double chargeValue, double givenValue) {

@@ -9,17 +9,15 @@ import java.util.stream.Collectors;
 public class ChangeTypeCounter {
 	
 	private List<ChangeTypeCount> elementCounterList = new ArrayList<>();
-	private VendingMachineChange vendingMachineChange = null;
 	
-	public ChangeTypeCounter(VendingMachineChange vendingMachineChange) {
-		this.vendingMachineChange = vendingMachineChange;
+	public ChangeTypeCounter() {
 		
 	}
 	
-	public void addElement(int elementName) {
+	public void addElement(Integer elementName) {
 
         Optional<ChangeTypeCount> foundElement = elementCounterList.stream()
-            .filter(elementCount -> this.vendingMachineChange.isDoubleEqual(elementCount.getChangeType(), elementName))
+            .filter(elementCount -> elementCount.getChangeType().equals(elementName))
             .findFirst();
 
         if (foundElement.isPresent()) {
