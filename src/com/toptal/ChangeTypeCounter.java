@@ -33,9 +33,9 @@ public class ChangeTypeCounter {
 	
     public void dumpChangeDescending() {
     	
-        // Dump in descending order without destroying
+        // Dump in descending order
     	Comparator<ChangeTypeCount> reverseComparator = Comparator.comparing(ChangeTypeCount::getChangeType).reversed();    	
-//    	Comparator<ChangeTypeCount> reverseComparator = Comparator.comparing(ChangeTypeCount);    	
+//    	Comparator<ChangeTypeCount> reverseComparator = Comparator.comparing(ChangeTypeCount::getChangeType);    	
         List<ChangeTypeCount> changeList = elementCounterList.stream()
         	.sorted(reverseComparator)	
             .collect(Collectors.toList());
