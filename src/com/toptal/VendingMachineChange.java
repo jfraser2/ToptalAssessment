@@ -8,7 +8,7 @@ public class VendingMachineChange {
 	
 	private List<Integer> coinList = new ArrayList<Integer>(
 	        Arrays.asList(100, 50, 25, 10, 5, 1)); 
-	private double epsilion = .01;
+	private double epsilon = .01;
 	
 	private ChangeTypeCounter changeTypeCounter = null; // delegate Object
 
@@ -32,10 +32,10 @@ public class VendingMachineChange {
 		return retVar;
 	}
 	
-	public boolean isDoubleEqual(double inputValue, double compareValue) {
+	private boolean isDoubleEqual(double inputValue, double compareValue) {
 		boolean retVar = false;
 		
-		if (Math.abs(inputValue - compareValue)  < epsilion) {
+		if (Math.abs(inputValue - compareValue)  < epsilon) {
 			retVar = true;
 		}
 		
@@ -48,9 +48,9 @@ public class VendingMachineChange {
 		
 		if (!isDoubleEqual(changeAmount, 0.0)) {
 			
-			int chargeAmountAsPennies = Double.valueOf(changeAmount * 100.0).intValue();
+			int changeAmountAsPennies = Double.valueOf(changeAmount * 100.0).intValue();
 			
-			int remainingAmount = chargeAmountAsPennies;
+			int remainingAmount = changeAmountAsPennies;
 			int numberOfCoins = 0;
 			int currentCoin;
 			
