@@ -31,6 +31,23 @@ public class ChangeTypeCounter {
 		
 	}
 	
+	public void addElementWithCount(Integer elementName, int increment) {
+
+        Optional<ChangeTypeCount> foundElement = elementCounterList.stream()
+            .filter(elementCount -> elementCount.getChangeType().equals(elementName))
+            .findFirst();
+
+        if (foundElement.isPresent()) {
+        	ChangeTypeCount elementCount = foundElement.get();
+        	elementCount.setCount(elementCount.getCount() + increment);
+//            System.out.println("Found Element: " + foundElement.get().getElementName());
+        } else {
+        	elementCounterList.add(new ChangeTypeCount(elementName, increment));
+//            System.out.println("Element not found.");
+        }
+		
+	}
+	
     public void dumpChangeDescending() {
     	
         // Dump in descending order
