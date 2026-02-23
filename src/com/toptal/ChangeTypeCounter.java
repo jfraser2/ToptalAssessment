@@ -9,17 +9,15 @@ import java.util.stream.Collectors;
 public class ChangeTypeCounter {
 	
 	private List<ChangeTypeCount> elementCounterList = new ArrayList<>();
-	private VendingMachineChange vendingMachineChange = null;
 	
-	public ChangeTypeCounter(VendingMachineChange vendingMachineChange) {
-		this.vendingMachineChange = vendingMachineChange;
+	public ChangeTypeCounter() {
 		
 	}
 	
-	public void addElement(int elementName) {
+	public void addElement(Integer elementName) {
 
         Optional<ChangeTypeCount> foundElement = elementCounterList.stream()
-            .filter(elementCount -> this.vendingMachineChange.isDoubleEqual(elementCount.getChangeType(), elementName))
+            .filter(elementCount -> elementCount.getChangeType().equals(elementName))
             .findFirst();
 
         if (foundElement.isPresent()) {
@@ -35,9 +33,9 @@ public class ChangeTypeCounter {
 	
     public void dumpChangeDescending() {
     	
-        // Dump in descending order without destroying
+        // Dump in descending order
     	Comparator<ChangeTypeCount> reverseComparator = Comparator.comparing(ChangeTypeCount::getChangeType).reversed();    	
-//    	Comparator<ChangeTypeCount> reverseComparator = Comparator.comparing(ChangeTypeCount);    	
+//    	Comparator<ChangeTypeCount> reverseComparator = Comparator.comparing(ChangeTypeCount::getChangeType);    	
         List<ChangeTypeCount> changeList = elementCounterList.stream()
         	.sorted(reverseComparator)	
             .collect(Collectors.toList());

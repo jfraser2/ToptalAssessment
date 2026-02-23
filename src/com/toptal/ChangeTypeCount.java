@@ -1,7 +1,7 @@
 package com.toptal;
 
 public class ChangeTypeCount {
-	private int changeType;
+	private Integer changeType;
     private int count;
 
     public ChangeTypeCount(int changeType, int count) {
@@ -16,12 +16,12 @@ public class ChangeTypeCount {
     }
 
 
-	public int getChangeType() {
+	public Integer getChangeType() {
 		return changeType;
 	}
 
 
-	public void setChangeType(int changeType) {
+	public void setChangeType(Integer changeType) {
 		this.changeType = changeType;
 	}
 
